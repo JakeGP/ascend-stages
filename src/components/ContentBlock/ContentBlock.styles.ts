@@ -11,14 +11,13 @@ const Block = styled.div<BlockProps>`
   padding-top: ${props => props.paddingTop ?? 0}px;
   padding-bottom: ${props => props.paddingBot ?? 0}px;
   
-  ${props => props.backgroundImage && {
-    backgroundImage: `url(${props.backgroundImage})`,
-    backgroundSize: 'cover',
+  ${props => props.backgroundColor && {
+    backgroundColor: props.backgroundColor,
   }};
 
   ${props => props.fill && {
-    minHeight: `${props => props.screenHeight}px`,
-    maxHeight: `${props => props.screenHeight}px`,
+    minHeight: `${props.screenHeight}px`,
+    maxHeight: `${props.screenHeight}px`,
   }};
 `;
 

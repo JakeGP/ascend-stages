@@ -53,7 +53,7 @@ const Column = styled.div<{ centerH?: boolean; centerV?: boolean; between?: bool
 /** TEXT STYLES */
 const span = styled.span<{ fontSize?: number; weight?: number; underline?: boolean }>`
   display: inline-flex;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   line-height: 1;
   color: ${(props) => props.color ?? 'white'};
   ${(props) =>
@@ -77,37 +77,38 @@ const Quote = styled(PageTitle)`
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
 `;
 const Heading = styled(span)`
-  font-size: 22pt;
+  font-size: 20pt;
   font-weight: ${(props) => props.weight ?? 700};
 `;
 const Subheading = styled(span)`
-  font-size: 20pt;
+  font-size: 18pt;
   font-weight: ${(props) => props.weight ?? 400};
   margin-bottom: ${SPACE_XS}px;
 `;
 const Title = styled(span)`
-  font-size: 18pt;
+  font-size: 16pt;
   font-weight: ${(props) => props.weight ?? 400};
 `;
 const Subtitle = styled(span)`
-  font-size: 16pt;
-  font-weight: ${(props) => props.weight ?? 300};
-`;
-const Paragraph_1 = styled(span)`
   font-size: 14pt;
   font-weight: ${(props) => props.weight ?? 300};
 `;
+const Paragraph_1 = styled(span)`
+  font-size: 12pt;
+  font-weight: ${(props) => props.weight ?? 300};
+`;
 const Paragraph_2 = styled(span)`
-  font-size: 10pt;
+  font-size: 8pt;
   font-weight: ${(props) => props.weight ?? 300};
 `;
 const Caption = styled(span)`
-  font-size: 10pt;
+  font-size: 8pt;
   font-weight: ${(props) => props.weight ?? 300};
 `;
 const HeaderNavLink = styled(span)`
-  font-size: 10pt;
+  font-size: 8pt;
   font-weight: ${(props) => props.weight ?? 700};
+  z-index: 1;
 `;
 
 export { Row, Column };

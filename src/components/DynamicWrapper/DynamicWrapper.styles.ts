@@ -4,8 +4,6 @@ import styled, { css } from "styled-components";
 const DynamicContainer = styled.div<{ minMax: MinMax | undefined, padding: number | undefined }>`
   position: relative;
   display: inherit;
-  background: inherit;
-  background-color: inherit;
   flex: 1;
   height: 100%;
   min-width: ${props => (props.minMax?.min - props.padding * 2) ?? 0}px;

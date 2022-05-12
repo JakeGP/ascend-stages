@@ -3,9 +3,9 @@ import { Spacing } from "../../models/models";
 import { SPACE_L, SPACE_M } from "../../styles/global";
 
 
-const FooterWrapper = styled.div<{ fixed?: boolean; noShadow?: boolean}>`
-  position: ${props => props.fixed ? 'fixed' : 'relative'};
-  bottom: ${props => props.fixed ? 0 : 'unset'};
+const FooterWrapper = styled.div`
+  position: fixed;
+  bottom: 0;
   width: 100%;
   background: ${props => props.color};
 
@@ -13,19 +13,6 @@ const FooterWrapper = styled.div<{ fixed?: boolean; noShadow?: boolean}>`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  ${props => !props.noShadow && css`
-    box-shadow: 0px -10px 10px 4px rgb(0 0 0 / 30%);
-  `};
-
-  &::before {
-    content: "";
-    position: absolute;
-    top: -29px;
-    left: 0;
-    width: 100%;
-    height: 30px;
-    transform: scaleY(-1);
-  }
 `;
 
 const FooterSegmentWrapper = styled.div<{ padding?: Spacing, tabletOrPhone?: boolean, hide?: boolean  }>`

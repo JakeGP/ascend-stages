@@ -6,7 +6,8 @@ import DynamicWrapper from '../DynamicWrapper';
 import { Block } from './ContentBlock.styles';
 
 export interface ContentBlockProps {
-  backgroundImage?: string;
+  id?: string;
+  backgroundColor?: string;
   paddingTop?: number;
   paddingBot?: number;
   fill?: boolean;

@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { HEADER_HEIGHT, HEADER_HEIGHT_SMALL, RED_PRIMARY, SPACE_M, SPACE_S, SPACE_XS, SPACE_XXS } from "../../styles/global";
+import { HEADER_HEIGHT, HEADER_HEIGHT_SMALL, RED_PRIMARY, RED_SECONDARY, SPACE_M } from "../../styles/global";
 import { PageTitle } from "../../styles/shared";
  
 const HeaderWrapper = styled.div<{ small: boolean; shadow?: boolean; }>`
@@ -18,27 +18,9 @@ const HeaderWrapper = styled.div<{ small: boolean; shadow?: boolean; }>`
   ${props => props.shadow && css`
     box-shadow: 0px 10px 10px 4px rgb(0 0 0 / 30%);
   `};
-
-  ::before {
-    content: '';
-    position: absolute;
-    bottom: -28px;
-    left: 0;
-    width: 100%;
-    height: 30px;
-    transition: .4s;
-  }
 `;
-
-const HeaderInner = styled.div`
-  position: relative;
-	display: flex;
-	justify-content: space-between;
-  height: 100%;
-  width: 100%;
-  `;
   
-  const HeaderLogo = styled.div`
+const HeaderLogo = styled.div`
   position: relative;
   display: flex;
   align-items: center;
@@ -49,57 +31,40 @@ const HeaderInner = styled.div`
 
 const HeaderLinksRow = styled.div<{ hide?: boolean }>`
   display: flex;
+  align-items: center;
 	justify-content: flex-end;
   width: 100%;
   opacity: ${props => props.hide ? 0 : 1};
-  padding-top: ${SPACE_M}px;
-  padding-bottom: ${SPACE_M}px;
   transition: .4s;
 `;
 
-const HeaderLink = styled.div<{ selected?: boolean; bubble?: boolean }>`
+const HeaderLink = styled.div<{ small?: boolean; selected?: boolean; bubble?: boolean }>`
   display: flex;
   position: relative;
   align-items: center;
   justify-content: center;
-  margin-left: ${SPACE_M}px;
-  padding-left: ${SPACE_XS}px;
-  padding-right: ${SPACE_XS}px;
-  padding-top: ${SPACE_XXS}px;
-  padding-bottom: ${SPACE_XXS}px;
+  padding-left: ${SPACE_M}px;
+  padding-right: ${SPACE_M}px;
+  background-color: ${props => props.bubble ? RED_PRIMARY : 'unset'};
+  height: ${props => props.small ? '100%' : '50%'};
   cursor: pointer;
   
-  ::after {
+  ::before {
     content: '';
     position: absolute;
-    bottom: 5px;
-    left: 0;
-    width: 0%;
-    height: 2px;
-    background: ${RED_PRIMARY};
-    transition: .4s;
+    bottom: ${props => props.selected ? 0 : '50%'};
+    left: ${props => props.selected ? 0 : '50%'};
+    width: ${props => props.selected ? '100%' : 0};
+    height: ${props => props.selected ? '2px' : 0};
+    transform: ${props => props.selected ? 'unset' : 'translate(-50%, 50%)'};
+    background: ${props => props.bubble ? RED_SECONDARY : RED_PRIMARY};
+    transition: width .4s, height .6s;
   }
 
-  :hover::after {
-    width: ${props => !props.bubble && `100%`};
+  :hover::before {
+    height: 100%;
+    width: 100%;
   }
-
-  ${props => props.bubble && {
-    backgroundColor: RED_PRIMARY,
-    borderRadius: 100,
-    paddingBottom: 0,
-    paddingTop: 1.5,
-
-    span: {
-      color: "white",
-    }
-  }}
-
-  ${props => props.selected && !props.bubble && css`
-    ::after {
-      width: 100%;
-    }
-  `}
 `;
 
 const HeaderBurger = styled.div`
@@ -141,7 +106,6 @@ const HeaderMobileBar = styled.div<{ index: number, count: number; open: boolean
 
 export { 
   HeaderWrapper, 
-  HeaderInner, 
   HeaderLogo,
   HeaderLinksRow, 
   HeaderLink,

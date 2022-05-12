@@ -24,6 +24,6 @@ export const PLATINUM_200 = '#9CAEC2';
 export const PLATINUM_100 = '#BFCFDF';
 
 /** Heights */
-export const HEADER_HEIGHT = 100;
+export const HEADER_HEIGHT = 80;
 export const HEADER_HEIGHT_SMALL = 40;
 export const HEADER_SCROLL_THRESHOLD = 50;
